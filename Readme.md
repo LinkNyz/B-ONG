@@ -1,60 +1,314 @@
-HyperText Markeup Language:
+# 📘 Project Guidelines – Web Platform
 
-PRATICAS 
-Comentar cada funcionalidade; 
-Usar sintex certa;
-Cada pagina desenvolver apena o main;
-Organize com TAB:
-Baixar imagens e colocar na pasta Img.
+Este documento define as **regras de desenvolvimento**, organização e fluxo de trabalho do projeto.
 
-PAGINAS
-Buscador -> Filtro 
-Home -> Noticias; Recomendacoes; ONGs parceiras.
-ONGs -> Link para o site official da ONG
-Login -> Criar e Entrar na conta
-Perfil -> Informacoes do cliente (Foto; nome; email; descricao)
-Login da ONG (Com formulario)
-Sobre nos
-Duvidas gerais 
+---
 
+# 🧠 Estrutura do Projeto
 
+O projeto é dividido em três áreas principais:
 
+* **HTML (estrutura)**
+* **CSS (estilo)**
+* **Git (controle de versão)**
 
-Cascading Style Sheets:
+---
 
-Root para puxar variaveis:
+# 🌐 HTML – Regras de Desenvolvimento
 
-cores 
-tamanhos 
-tipografia
-formas
-espacamento
+## 📌 Boas práticas obrigatórias
 
+* ✔ Utilizar **sintaxe correta e semântica**
+* ✔ Indentar corretamente (usar TAB ou padrão definido)
+* ✔ Comentar funcionalidades importantes no código
+* ✔ Manter o código limpo e organizado
 
+---
 
+## 📄 Estrutura das páginas
 
-Processo:
+Cada página deve conter **apenas o conteúdo do `<main>`**.
 
-Login-p -> Home-p -> Buscador-p -> ONGs-p -> Pagina oficial (IDEAL)
-Buscador-p -> Filtro -> ONGs-p...
+Elementos como:
 
-Filtro (Cards com descrica; subtitul; info)
+* Header
+* Footer
+* Navbar
 
+devem ser padronizados futuramente (componentização).
 
+---
 
+## 🖼️ Imagens
 
-Git:
+* Todas as imagens devem ser:
 
-Branch principal -> master
+  * Baixadas localmente
+  * Armazenadas na pasta:
 
-Branch secundarias (NOMES):
-Miguel; 
-Daniel;
-Guilherme;
-Pedro;
+```bash
+Img/
+```
 
-SubBranch (NOMES):
+* ❌ Não usar links externos diretos
 
-html; 
-css; 
-APIs;
+---
+
+## 📚 Páginas do sistema
+
+### 🔹 Home
+
+* Notícias
+* Recomendações
+* ONGs parceiras
+
+---
+
+### 🔹 Buscador
+
+* Sistema de busca
+* Filtros
+
+---
+
+### 🔹 ONGs
+
+* Lista de ONGs
+* Link para site oficial
+
+---
+
+### 🔹 Login
+
+* Criar conta
+* Entrar na conta
+
+---
+
+### 🔹 Perfil
+
+* Foto
+* Nome
+* Email
+* Descrição
+
+---
+
+### 🔹 Login ONG
+
+* Formulário específico para ONGs
+
+---
+
+### 🔹 Sobre Nós
+
+* Informações sobre o projeto
+
+---
+
+### 🔹 Dúvidas Gerais
+
+* FAQ / suporte
+
+---
+
+# 🎨 CSS – Regras de Estilo
+
+## 🎯 Organização
+
+Utilizar `:root` para variáveis globais:
+
+```css
+:root {
+  --cor-primaria: ;
+  --cor-secundaria: ;
+  --fonte-principal: ;
+  --espacamento: ;
+}
+```
+
+---
+
+## 📌 Padronização
+
+Definir variáveis para:
+
+* 🎨 Cores
+* 🔤 Tipografia
+* 📏 Tamanhos
+* 🔲 Formas (bordas, radius)
+* 📐 Espaçamento
+
+---
+
+## ✔ Boas práticas
+
+* Código organizado e legível
+* Evitar repetição de estilos
+* Usar nomes claros nas classes
+
+---
+
+# 🔄 Fluxo de Navegação (UX)
+
+## Caminho principal:
+
+```text
+Login → Home → Buscador → ONGs → Página da ONG
+```
+
+---
+
+## Caminho alternativo:
+
+```text
+Buscador → Filtro → ONGs → Página da ONG
+```
+
+---
+
+## 🔍 Filtro
+
+O filtro deve utilizar **cards**, contendo:
+
+* Descrição
+* Subtítulo
+* Informações relevantes
+
+---
+
+# 🌿 Git – Regras de Versionamento
+
+## 🌳 Estrutura de Branches
+
+* `master` → versão estável (produção)
+* `develop` → ambiente de testes
+* `feature/*` → desenvolvimento de funcionalidades
+
+---
+
+## 🚫 Regras importantes
+
+* ❌ Não fazer commit direto na `master`
+* ❌ Não trabalhar diretamente na `develop`
+* ❌ Não usar `push -f` sem necessidade
+
+---
+
+## ✅ Fluxo obrigatório
+
+### 1. Atualizar develop
+
+```bash
+git checkout develop
+git pull origin develop
+```
+
+---
+
+### 2. Criar feature
+
+```bash
+git checkout -b feature/nome-da-feature
+```
+
+---
+
+### 3. Trabalhar
+
+```bash
+git add .
+git commit -m "feat: descrição da funcionalidade"
+```
+
+---
+
+### 4. Enviar
+
+```bash
+git push origin feature/nome-da-feature
+```
+
+---
+
+### 5. Pull Request
+
+* Base: `develop`
+* Revisar antes de aprovar
+
+---
+
+### 6. Merge
+
+* Feature → Develop
+
+---
+
+### 7. Publicação
+
+```bash
+git checkout master
+git merge develop
+git push origin master
+```
+
+---
+
+# 🧾 Padrão de Commits
+
+Formato:
+
+```bash
+tipo: descrição
+```
+
+## Tipos:
+
+* `feat:` nova funcionalidade
+* `fix:` correção de erro
+* `docs:` documentação
+* `style:` CSS / visual
+* `refactor:` melhoria interna
+* `chore:` manutenção
+
+---
+
+# 🎯 Objetivo do Projeto
+
+Criar uma plataforma organizada e acessível para:
+
+* Busca de ONGs
+* Divulgação de causas
+* Conexão entre usuários e instituições
+
+---
+
+# ⚠️ Regras gerais
+
+* Código limpo sempre
+* Organização é prioridade
+* Nomeação clara de arquivos e classes
+* Pensar na experiência do usuário (UX)
+
+---
+
+# 🚀 Filosofia do Projeto
+
+Este projeto segue três princípios:
+
+* Simplicidade
+* Organização
+* Escalabilidade
+
+---
+
+# 📌 Resumo
+
+* HTML limpo e semântico
+* CSS padronizado com variáveis
+* Git organizado com branches
+* Fluxo claro de desenvolvimento
+
+---
+
+Este documento deve ser seguido por todos os colaboradores do projeto.
