@@ -1,4 +1,4 @@
-Html:
+HyperText Markeup Language:
 
 PRATICAS 
 Comentar cada funcionalidade; 
@@ -21,7 +21,7 @@ Buscador-p -> Filtro -> ONGs-p...
 
 Filtro (Cards com descrica; subtitul; info)
 
-Css:
+Cascading Style Sheets:
 
 Root para puxar variaveis:
 
@@ -31,7 +31,7 @@ tipografia
 formas
 espacamento
 
-Js:
+JavaScript:
 
 
 
