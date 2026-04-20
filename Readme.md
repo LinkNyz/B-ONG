@@ -4,7 +4,8 @@ PRATICAS
 Comentar cada funcionalidade; 
 Usar sintex certa;
 Cada pagina desenvolver apena o main;
-Organize com TAB.
+Organize com TAB:
+Baixar imagens e colocar na pasta Img.
 
 PAGINAS
 Buscador -> Filtro 
