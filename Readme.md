@@ -16,10 +16,8 @@ Login da ONG (Com formulario)
 Sobre nos
 Duvidas gerais 
 
-Login-p -> Home-p -> Buscador-p -> ONGs-p -> Pagina oficial (IDEAL)
-Buscador-p -> Filtro -> ONGs-p...
 
-Filtro (Cards com descrica; subtitul; info)
+
 
 Cascading Style Sheets:
 
@@ -31,7 +29,31 @@ tipografia
 formas
 espacamento
 
-JavaScript:
 
 
 
+Processo:
+
+Login-p -> Home-p -> Buscador-p -> ONGs-p -> Pagina oficial (IDEAL)
+Buscador-p -> Filtro -> ONGs-p...
+
+Filtro (Cards com descrica; subtitul; info)
+
+
+
+
+Git:
+
+Branch principal -> master
+
+Branch secundarias (NOMES):
+Miguel; 
+Daniel;
+Guilherme;
+Pedro;
+
+SubBranch (NOMES):
+
+html; 
+css; 
+APIs;
