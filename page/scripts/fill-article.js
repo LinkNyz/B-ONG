@@ -1,6 +1,6 @@
 (function () {
     // ── 1. DATABASE ───────────────────────────────────────────────────────────
-    
+
     let ongsDatabase = [];
     const container = document.getElementById("single-ong-container");
 
@@ -22,20 +22,17 @@
 
     // LOAD DATA ──────────────────────────────────────────────────────────
     async function loadData() {
-        try {
-            const r = await fetch('./ongs.json');
-            if (!r.ok) throw new Error();
-            const data = await r.json();
-            if (Array.isArray(data) && data.length) { ongsDatabase = normalizeIds(data); return; }
-            throw new Error();
-        } catch {
-            ongsDatabase = normalizeIds([...DEFAULT_NGO_LIST]);
-        }
+        const r = await fetch('./ongs.json');
+        if (!r.ok) throw new Error();
+        const data = await r.json();
+        if (Array.isArray(data) && data.length) { ongsDatabase = normalizeIds(data); return; }
+        throw new Error();
+        ongsDatabase = normalizeIds([...DEFAULT_ong_LIST]);
     }
 
     // RENDER ─────────────────────────────────────────────────────────────
-    function render(ngo) {
-        if (!ngo) {
+    function render(ong) {
+        if (!ong) {
             container.innerHTML = `
                 <div class="error-card">
                     <span class="material-symbols-outlined">search_off</span>
@@ -49,31 +46,31 @@
             return;
         }
 
-        const qualsHtml = (ngo.qualificacoes || []).map(q =>
+        const qualsHtml = (ong.qualificacoes || []).map(q =>
             `<span class="chip-qual"><span class="material-symbols-outlined">verified</span>${q}</span>`
         ).join('');
 
-        const donationsHtml = (ngo.doacoes_aceitas || []).map(d =>
+        const donationsHtml = (ong.doacoes_aceitas || []).map(d =>
             `<span class="chip-donation">${d}</span>`
         ).join('');
 
-        const tagsHtml = (ngo.tags || []).map(t =>
+        const tagsHtml = (ong.tags || []).map(t =>
             `<span class="chip-tag">#${t}</span>`
         ).join('');
 
-        const mapSrc = `https://maps.google.com/maps?q=${encodeURIComponent(ngo.endereco)}&output=embed&z=14`;
+        const mapSrc = `https://maps.google.com/maps?q=${encodeURIComponent(ong.endereco)}&output=embed&z=14`;
 
         container.innerHTML = `
         <div class="ong-card">
 
             <!-- BANNER -->
             <div class="banner">
-                <img src="${ngo.imagemUrl}" alt="${ngo.titulo}" onerror="this.src='https://picsum.photos/id/13/1200/500'">
+                <img src="${ong.imagemUrl}" alt="${ong.titulo}" onerror="this.src='https://picsum.photos/id/13/1200/500'">
                 <div class="banner-overlay"></div>
                 <span class="banner-badge">ONG Verificada</span>
                 <div class="banner-meta">
-                    <h1 class="banner-title">${ngo.titulo}</h1>
-                    <a href="${ngo.linkSite}" target="_blank" rel="noopener noreferrer" class="cta-btn">
+                    <h1 class="banner-title">${ong.titulo}</h1>
+                    <a href="${ong.linkSite}" target="_blank" rel="noopener noreferrer" class="cta-btn">
                         Site oficial <span class="material-symbols-outlined">open_in_new</span>
                     </a>
                 </div>
@@ -84,7 +81,7 @@
 
                 <!-- Coluna esquerda: Descrição -->
                 <div class="desc-block">
-                    <p>${ngo.descricao}</p>
+                    <p>${ong.descricao}</p>
                 </div>
 
                 <!-- Coluna direita: Sidebar de info -->
@@ -120,7 +117,7 @@
                     </div>
                     <div class="location-row">
                         <span class="material-symbols-outlined">pin_drop</span>
-                        ${ngo.endereco}
+                        ${ong.endereco}
                     </div>
                     <div class="map-frame">
                         <iframe src="${mapSrc}" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -133,7 +130,7 @@
                         <h3>Quer ajudar esta causa?</h3>
                         <p>Acesse o site oficial e descubra como contribuir diretamente.</p>
                     </div>
-                    <a href="${ngo.linkSite}" target="_blank" rel="noopener noreferrer" class="cta-btn-lg">
+                    <a href="${ong.linkSite}" target="_blank" rel="noopener noreferrer" class="cta-btn-lg">
                         Acessar site oficial <span class="material-symbols-outlined">open_in_new</span>
                     </a>
                 </div>
@@ -162,8 +159,8 @@
             return;
         }
 
-        const ngo = ongsDatabase.find(n => n.id === slug) || null;
-        render(ngo);
+        const ong = ongsDatabase.find(n => n.id === slug) || null;
+        render(ong);
     }
 
     init();
