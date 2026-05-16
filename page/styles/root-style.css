@@ -1,0 +1,33 @@
+:root {
+    --ivory: #F5F4EE;
+    --forest: #3A7D22;
+    --forest-light: #5FA63A;
+    --sage: #8DB87A;
+    --pale-green: #D6EBC8;
+    --cream: #EEF0E6;
+    --dark: #0D1F08;
+    --deep-forest: #0A2A05;
+    --accent: #B5E04A;
+    --text-muted: #4A5A40;
+    --white: #FFFFFF;
+
+    --font-display: 'Playfair Display', serif;
+    --font-body: 'DM Sans', sans-serif;
+    --font-accent: 'Cormorant Garamond', serif;
+    --serif-text: "Jost", sans-serif;
+    --title-text: "Cormorant Garamond", serif;
+
+    --forest-green: #4B9126ff;
+    --strong-green: #dcffab;
+    --muted-olive: #8EB663ff;
+    --black-forest: #054218ff;
+    --evergreen: #012F13ff;
+
+    --radius-sm: 6px;
+    --radius-md: 14px;
+    --radius-lg: 28px;
+    --radius-xl: 48px;
+
+    --shadow-sm: 0 2px 8px rgba(10, 42, 5, .06);
+    --shadow-md: 0 8px 30px rgba(10, 42, 5, .12);
+}
