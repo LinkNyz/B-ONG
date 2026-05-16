@@ -1,0 +1,125 @@
+[
+  {
+    "id": "gerando-falcoes",
+    "titulo": "Gerando Falcões",
+    "descricao": "ONG focada na superação da pobreza em favelas brasileiras por meio de educação, desenvolvimento econômico e assistência social. Atua em diversas comunidades pelo país.",
+    "qualificacoes": [
+      "Prêmio Empreendedor Social",
+      "Reconhecimento UNICEF",
+      "Transparência institucional"
+    ],
+    "imagemUrl": "https://www.idis.org.br/wp-content/uploads/2021/07/Design-sem-nome-40.png",
+    "endereco": "Poá, SP",
+    "doacoes_aceitas": [
+      "Recursos financeiros",
+      "Alimentos",
+      "Roupas",
+      "Voluntariado"
+    ],
+    "tags": [
+      "educação",
+      "favela",
+      "assistência social",
+      "juventude"
+    ],
+    "linkSite": "https://gerandofalcoes.com"
+  },
+  {
+    "id": "aacd",
+    "titulo": "AACD",
+    "descricao": "Instituição referência no tratamento e reabilitação de pessoas com deficiência física, oferecendo atendimento médico especializado e inclusão social.",
+    "qualificacoes": [
+      "CEBAS",
+      "Hospital de referência nacional",
+      "Reconhecimento internacional"
+    ],
+    "imagemUrl": "https://yt3.googleusercontent.com/EYPWYEiBkMEWqc93ik63rYck288FLzjIoyUWtouq1qIp9Z6IqOMcibZYDPfEZZ1bilCcYQvCQ2c=s900-c-k-c0x00ffffff-no-rj",
+    "endereco": "São Paulo, SP",
+    "doacoes_aceitas": [
+      "Recursos financeiros",
+      "Cadeiras de rodas",
+      "Equipamentos médicos",
+      "Voluntariado"
+    ],
+    "tags": [
+      "saúde",
+      "reabilitação",
+      "deficiência física",
+      "inclusão"
+    ],
+    "linkSite": "https://aacd.org.br"
+  },
+  {
+    "id": "fundacao-abrinq",
+    "titulo": "Fundação Abrinq",
+    "descricao": "Organização dedicada à defesa dos direitos das crianças e adolescentes, promovendo educação, proteção e oportunidades em todo o Brasil.",
+    "qualificacoes": [
+      "OSCIP",
+      "Reconhecimento UNICEF",
+      "Prêmio Direitos Humanos"
+    ],
+    "imagemUrl": "https://www.fadc.org.br/sites/default/files/2019-05/logo-fadc_1.png",
+    "endereco": "São Paulo, SP",
+    "doacoes_aceitas": [
+      "Material escolar",
+      "Recursos financeiros",
+      "Voluntariado"
+    ],
+    "tags": [
+      "infância",
+      "educação",
+      "direitos humanos",
+      "adolescentes"
+    ],
+    "linkSite": "https://fadc.org.br"
+  },
+  {
+    "id": "medicos-sem-fronteiras",
+    "titulo": "Médicos Sem Fronteiras",
+    "descricao": "Organização humanitária internacional que oferece ajuda médica a populações afetadas por crises, epidemias, conflitos e desastres naturais.",
+    "qualificacoes": [
+      "Prêmio Nobel da Paz",
+      "Reconhecimento OMS",
+      "Atuação internacional"
+    ],
+    "imagemUrl": "https://www.msf.org.br/wp-content/uploads/2024/02/logo_fundobranco_1200x628-1.png",
+    "endereco": "Rio de Janeiro, RJ",
+    "doacoes_aceitas": [
+      "Recursos financeiros",
+      "Materiais hospitalares",
+      "Voluntariado médico"
+    ],
+    "tags": [
+      "saúde",
+      "humanitário",
+      "emergência",
+      "medicina"
+    ],
+    "linkSite": "https://medicossemfronteiras.org.br"
+  },
+  {
+    "id": "sos-mata-atlantica",
+    "titulo": "Fundação SOS Mata Atlântica",
+    "descricao": "ONG ambiental dedicada à conservação da Mata Atlântica, promovendo reflorestamento, educação ambiental e monitoramento de biomas.",
+    "qualificacoes": [
+      "Prêmio Verde das Américas",
+      "Parceira UNESCO",
+      "Reconhecimento ambiental"
+    ],
+    "imagemUrl": "https://wwfbrnew.awsassets.panda.org/img/original/logo_sos_mata_atlantica_1.jpg",
+    "endereco": "São Paulo, SP",
+    "doacoes_aceitas": [
+      "Mudas",
+      "Recursos financeiros",
+      "Equipamentos ambientais",
+      "Voluntariado"
+    ],
+    "tags": [
+      "meio ambiente",
+      "mata atlântica",
+      "reflorestamento",
+      "sustentabilidade"
+    ],
+    "linkSite": "https://sosma.org.br"
+  }
+]

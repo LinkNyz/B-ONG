@@ -215,7 +215,7 @@ nav ul.nav-primary {
     display: flex;
     gap: 50px;
     list-style: none;
-    font-size: 1.25em;
+    font-size: 1em;
     padding: 0;
 }
 
