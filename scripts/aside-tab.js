@@ -1,4 +1,3 @@
-
 (function () {
     const overlay = document.querySelector('.overlay-blur');
     const aside = document.querySelector('aside');

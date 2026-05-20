@@ -1,10 +1,8 @@
 (function () {
-    // ── 1. DATABASE ───────────────────────────────────────────────────────────
 
     let ongsDatabase = [];
     const container = document.getElementById("single-ong-container");
 
-    //URL SLUG ───────────────────────────────────────────────────────────
     function getSlug() {
         const p = new URLSearchParams(window.location.search);
         const v = p.get('id') || p.get('ong') || p.get('slug');
@@ -20,17 +18,14 @@
         return list.map(n => ({ ...n, id: n.id ? n.id.toLowerCase() : makeSlug(n.titulo) }));
     }
 
-    // LOAD DATA ──────────────────────────────────────────────────────────
     async function loadData() {
         const r = await fetch('../../ongs.json');
         if (!r.ok) throw new Error();
         const data = await r.json();
         if (Array.isArray(data) && data.length) { ongsDatabase = normalizeIds(data); return; }
         throw new Error();
-        ongsDatabase = normalizeIds([...DEFAULT_ong_LIST]);
     }
 
-    // RENDER ─────────────────────────────────────────────────────────────
     function render(ong) {
         if (!ong) {
             container.innerHTML = `
@@ -62,8 +57,6 @@
 
         container.innerHTML = `
         <div class="ong-card">
-
-            <!-- BANNER -->
             <div class="banner">
                 <img src="${ong.imagemUrl}" alt="${ong.titulo}" onerror="this.src='https://picsum.photos/id/13/1200/500'">
                 <div class="banner-overlay"></div>
@@ -76,15 +69,12 @@
                 </div>
             </div>
 
-            <!-- BODY (two-column grid on desktop) -->
             <div class="card-body">
 
-                <!-- Coluna esquerda: Descrição -->
                 <div class="desc-block">
                     <p>${ong.descricao}</p>
                 </div>
 
-                <!-- Coluna direita: Sidebar de info -->
                 <div class="info-sidebar">
                     <div class="info-tile">
                         <div class="tile-heading">
@@ -109,7 +99,6 @@
                     </div>
                 </div>
 
-                <!-- Coluna esquerda: Localização -->
                 <div class="loc-block">
                     <div class="section-label">
                         <span class="material-symbols-outlined">location_on</span>
@@ -124,7 +113,6 @@
                     </div>
                 </div>
 
-                <!-- CTA bottom (full width) -->
                 <div class="bottom-cta">
                     <div class="bottom-cta-text">
                         <h3>Quer ajudar esta causa?</h3>
@@ -135,11 +123,10 @@
                     </a>
                 </div>
 
-            </div><!-- /card-body -->
+            </div>
         </div>`;
     }
 
-    // ── 8. INIT ───────────────────────────────────────────────────────────────
     async function init() {
         await loadData();
         const slug = getSlug();

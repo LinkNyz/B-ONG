@@ -10,7 +10,6 @@ footer {
     margin-top: auto;
 }
 
-
 .ong-card {
     background: var(--white);
     border-radius: var(--radius-lg);
@@ -31,7 +30,6 @@ footer {
         transform: translateY(0);
     }
 }
-
 
 .banner {
     position: relative;
@@ -115,7 +113,6 @@ footer {
     font-size: 1rem;
 }
 
-
 .card-body {
     padding: 32px 36px 40px;
     display: grid;
@@ -126,7 +123,6 @@ footer {
         "cta     cta";
     gap: 0 28px;
 }
-
 
 .desc-block {
     grid-area: desc;
@@ -144,7 +140,6 @@ footer {
     line-height: 1.7;
     color: #2a3a22;
 }
-
 
 .section-label {
     display: flex;
@@ -165,7 +160,6 @@ footer {
     border-radius: var(--radius-sm);
 }
 
-
 .info-sidebar {
     grid-area: sidebar;
     display: flex;
@@ -173,7 +167,6 @@ footer {
     gap: 14px;
     align-self: start;
 }
-
 
 .info-grid {
     display: contents;
@@ -201,7 +194,6 @@ footer {
     font-size: 0.95rem;
     color: var(--forest-light);
 }
-
 
 .chips {
     display: flex;
@@ -256,8 +248,6 @@ footer {
     display: none;
 }
 
-
-
 .loc-block {
     grid-area: loc;
     align-self: start;
@@ -295,7 +285,6 @@ footer {
     display: block;
     border: 0;
 }
-
 
 .bottom-cta {
     grid-area: cta;
@@ -347,7 +336,6 @@ footer {
     font-size: 1.1rem;
 }
 
-
 .error-card {
     background: var(--white);
     border-radius: var(--radius-lg);
@@ -371,7 +359,6 @@ footer {
     color: var(--text-muted);
     line-height: 1.6;
 }
-
 
 .loading-card {
     background: var(--white);
@@ -417,7 +404,7 @@ footer {
         font-size: 0.75rem;
     }
 
-    /* card body: collapse to single column */
+    
     .card-body {
         padding: 20px 16px 28px;
         display: flex;
@@ -425,7 +412,7 @@ footer {
         gap: 0;
     }
 
-    /* banner */
+    
     .banner {
         height: 220px;
     }
@@ -455,7 +442,7 @@ footer {
         padding: 4px 10px;
     }
 
-    /* description */
+    
     .desc-block {
         padding: 16px 18px;
         margin-bottom: 20px;
@@ -466,7 +453,7 @@ footer {
         line-height: 1.65;
     }
 
-    /* sidebar becomes stacked row of tiles */
+    
     .info-sidebar {
         flex-direction: column;
         gap: 10px;
@@ -483,13 +470,13 @@ footer {
         margin-bottom: 9px;
     }
 
-    /* section label */
+    
     .section-label {
         font-size: 1.2rem;
         margin-bottom: 10px;
     }
 
-    /* chips */
+    
     .chip-qual {
         font-size: 0.8rem;
         padding: 6px 12px;
@@ -505,7 +492,7 @@ footer {
         padding: 5px 11px;
     }
 
-    /* location */
+    
     .loc-block {
         margin-bottom: 0;
     }
@@ -519,7 +506,7 @@ footer {
         height: 210px;
     }
 
-    /* bottom cta */
+    
     .bottom-cta {
         flex-direction: column;
         text-align: center;

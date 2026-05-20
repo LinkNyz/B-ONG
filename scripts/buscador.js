@@ -1,19 +1,12 @@
-/**
- * buscador.js — v2
- * Melhorias: busca em tempo real, relevância, skeleton loading,
- * descrição nos cards, acessibilidade aria-live, UX geral.
- */
 (function () {
     'use strict';
 
-    // ── ESTADO ───────────────────────────────────────────────────────────────
     let ongsDatabase = [];
     let filtrosAtivos = { tags: new Set(), estados: new Set() };
     let termoBusca = '';
     let autocompleteIdx = -1;
     let debounceTimer = null;
 
-    // ── SELETORES ────────────────────────────────────────────────────────────
     const input           = document.getElementById('busca-input');
     const autocompleteEl  = document.getElementById('autocomplete-list');
     const filtroBtnEl     = document.getElementById('filtro-btn');
@@ -27,11 +20,9 @@
     const contagemEl      = document.getElementById('contagem');
     const filtrosAtivosEl = document.getElementById('filtros-ativos');
 
-    // Adiciona aria-live para leitores de tela anunciarem mudanças nos resultados
     cardsEl.setAttribute('aria-live', 'polite');
     cardsEl.setAttribute('aria-atomic', 'false');
 
-    // ── UTILS ────────────────────────────────────────────────────────────────
     function normalizar(str) {
         return (str || '')
             .normalize('NFD')
@@ -41,8 +32,8 @@
     }
 
     function extrairEstado(endereco) {
-        const m = (endereco || '').match(/,\s*([A-Z]{2})$/);
-        return m ? m[1] : endereco;
+        const m = (endereco || '').match(/[-,]\s*([A-Z]{2})\b/);
+        return m ? m[1] : null;
     }
 
     function highlightMatch(text, query) {
@@ -51,7 +42,6 @@
         return text.replace(re, '<mark>$1</mark>');
     }
 
-    // Calcula uma pontuação de relevância para ordenar resultados
     function calcularRelevancia(ong, q) {
         if (!q) return 0;
         let score = 0;
@@ -69,7 +59,6 @@
         return score;
     }
 
-    // ── SKELETON LOADING ─────────────────────────────────────────────────────
     function mostrarSkeleton() {
         cardsEl.innerHTML = Array(6).fill(0).map(() => `
             <div class="ong-result-card skeleton-card" aria-hidden="true">
@@ -82,7 +71,6 @@
             </div>`).join('');
     }
 
-    // ── CARGA DE DADOS ───────────────────────────────────────────────────────
     async function loadData() {
         mostrarSkeleton();
         try {
@@ -108,7 +96,6 @@
         renderCards(ongsDatabase);
     }
 
-    // ── FILTROS DINÂMICOS ─────────────────────────────────────────────────────
     function construirFiltros() {
         const tagsSet    = new Set();
         const estadosSet = new Set();
@@ -120,7 +107,6 @@
         });
 
         filtrosTagsEl.innerHTML = '';
-        // Ordena tags alfabeticamente para facilitar a leitura
         [...tagsSet].sort().forEach(tag => {
             filtrosTagsEl.appendChild(criarChipFiltro(tag, 'tags'));
         });
@@ -188,7 +174,6 @@
         executarBusca();
     }
 
-    // ── AUTOCOMPLETE ─────────────────────────────────────────────────────────
     function mostrarAutocomplete(query) {
         const q = normalizar(query);
         if (!q || q.length < 1) { fecharAutocomplete(); return; }
@@ -208,17 +193,23 @@
             item.className = 'autocomplete-item';
             item.setAttribute('role', 'option');
             item.setAttribute('data-idx', i);
-            item.innerHTML = `
-                <img class="autocomplete-thumb"
-                     src="${ong.imagemUrl}"
-                     alt=""
-                     onerror="this.src='https://picsum.photos/id/13/80/80'">
-                <div class="autocomplete-info">
-                    <div class="autocomplete-nome">${highlightMatch(ong.titulo, query)}</div>
-                    <div class="autocomplete-meta">
-                        ${extrairEstado(ong.endereco)} · ${(ong.tags || []).slice(0, 2).join(', ')}
-                    </div>
+
+            const thumb = document.createElement('img');
+            thumb.className = 'autocomplete-thumb';
+            thumb.src = ong.imagemUrl;
+            thumb.alt = '';
+            thumb.onerror = function () { this.src = 'https://picsum.photos/id/13/80/80'; };
+
+            const info = document.createElement('div');
+            info.className = 'autocomplete-info';
+            info.innerHTML = `
+                <div class="autocomplete-nome">${highlightMatch(ong.titulo, query)}</div>
+                <div class="autocomplete-meta">
+                    ${extrairEstado(ong.endereco)} · ${(ong.tags || []).slice(0, 2).join(', ')}
                 </div>`;
+
+            item.appendChild(thumb);
+            item.appendChild(info);
 
             item.addEventListener('mousedown', e => {
                 e.preventDefault();
@@ -246,12 +237,10 @@
         if (autocompleteIdx >= 0) items[autocompleteIdx]?.classList.remove('selected');
         autocompleteIdx = (autocompleteIdx + dir + items.length) % items.length;
         items[autocompleteIdx].classList.add('selected');
-        // Atualiza o valor do input para o item selecionado
         const nome = items[autocompleteIdx].querySelector('.autocomplete-nome');
         if (nome) input.value = nome.textContent;
     }
 
-    // ── BUSCA PRINCIPAL ───────────────────────────────────────────────────────
     function executarBusca() {
         const q = normalizar(termoBusca);
         const temTags    = filtrosAtivos.tags.size > 0;
@@ -281,7 +270,6 @@
             return true;
         });
 
-        // Ordena por relevância quando há termo de busca
         if (q) {
             resultados = resultados
                 .map(ong => ({ ong, score: calcularRelevancia(ong, q) }))
@@ -292,13 +280,11 @@
         renderCards(resultados);
     }
 
-    // Debounce para busca em tempo real: espera 250ms após parar de digitar
     function executarBuscaDebounced() {
         clearTimeout(debounceTimer);
         debounceTimer = setTimeout(executarBusca, 250);
     }
 
-    // ── RENDER DE CARDS ───────────────────────────────────────────────────────
     function renderCards(lista) {
         resultsHeader.hidden = false;
         contagemEl.textContent = lista.length === 1
@@ -326,12 +312,11 @@
             `<span class="card-tag">#${t}</span>`
         ).join('');
 
-        // Descrição truncada para o card
         const descricao = (ong.descricao || '').length > 110
             ? ong.descricao.slice(0, 107) + '…'
             : ong.descricao;
 
-        const href = `article.html?id=${ong.id}`;
+        const href = `pages/article.html?id=${ong.id}`;
 
         const a = document.createElement('a');
         a.className = 'ong-result-card';
@@ -339,34 +324,39 @@
         a.style.animationDelay = `${idx * 0.05}s`;
         a.setAttribute('aria-label', `Ver detalhes de ${ong.titulo}`);
 
-        a.innerHTML = `
-            <div class="card-img-wrap">
-                <img src="${ong.imagemUrl}"
-                     alt="${ong.titulo}"
-                     loading="lazy"
-                     onerror="this.src='https://picsum.photos/id/13/600/400'">
-                <div class="card-img-overlay"></div>
-                <div class="card-local-badge">
-                    <span class="material-symbols-outlined">location_on</span>
-                    ${ong.endereco}
-                </div>
-            </div>
-            <div class="card-info">
-                <div class="card-nome">${ong.titulo}</div>
-                ${descricao ? `<p class="card-desc">${descricao}</p>` : ''}
-                <div class="card-tags">${tagsHtml}</div>
-                <div class="card-ver-mais">
-                    Ver detalhes
-                    <span class="material-symbols-outlined">arrow_forward</span>
-                </div>
+        const img = document.createElement('img');
+        img.src = ong.imagemUrl;
+        img.alt = ong.titulo;
+        img.loading = 'lazy';
+        img.onerror = function () { this.src = 'https://picsum.photos/id/13/600/400'; };
+
+        const imgWrap = document.createElement('div');
+        imgWrap.className = 'card-img-wrap';
+        imgWrap.appendChild(img);
+        imgWrap.innerHTML += `
+            <div class="card-img-overlay"></div>
+            <div class="card-local-badge">
+                <span class="material-symbols-outlined">location_on</span>
+                ${ong.endereco}
             </div>`;
+
+        const cardInfo = document.createElement('div');
+        cardInfo.className = 'card-info';
+        cardInfo.innerHTML = `
+            <div class="card-nome">${ong.titulo}</div>
+            ${descricao ? `<p class="card-desc">${descricao}</p>` : ''}
+            <div class="card-tags">${tagsHtml}</div>
+            <div class="card-ver-mais">
+                Ver detalhes
+                <span class="material-symbols-outlined">arrow_forward</span>
+            </div>`;
+
+        a.appendChild(imgWrap);
+        a.appendChild(cardInfo);
 
         return a;
     }
 
-    // ── EVENT LISTENERS ───────────────────────────────────────────────────────
-
-    // Busca em tempo real com debounce
     input.addEventListener('input', () => {
         termoBusca = input.value;
         mostrarAutocomplete(termoBusca);
@@ -380,7 +370,6 @@
             if (e.key === 'Escape')    { fecharAutocomplete(); return; }
             if (e.key === 'Enter') {
                 e.preventDefault();
-                // Se há item selecionado no autocomplete, usa ele
                 const sel = autocompleteEl.querySelector('.autocomplete-item.selected');
                 if (sel) {
                     const nome = sel.querySelector('.autocomplete-nome');
@@ -423,7 +412,6 @@
 
     limparBtnEl.addEventListener('click', limparFiltros);
 
-    // ── INIT ──────────────────────────────────────────────────────────────────
     loadData();
 
 })();

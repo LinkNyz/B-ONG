@@ -5,11 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>B-ONG — Buscador de ONGs</title>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20,400,0,0&icon_names=arrow_back,arrow_forward,chevron_right,close,content_copy,eco,error,favorite,filter_list,groups,help_outline,info,local_offer,location_on,open_in_new,person,pin_drop,public,search,search_off,share,tune,verified,volunteer_activism" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&family=Jost:wght@200..700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../styles/root-style.css">
-    <link rel="stylesheet" href="../styles/header-footer-style.css">
-    <link rel="stylesheet" href="../styles/buscador.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20,400,0,0&icon_names=arrow_back,arrow_forward,chevron_right,close,content_copy,eco,error,favorite,filter_list,groups,help_outline,info,local_offer,location_on,open_in_new,person,pin_drop,public,search,search_off,share,tune,verified,volunteer_activism"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&family=Jost:wght@200..700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles/root-style.css">
+    <link rel="stylesheet" href="styles/header-footer-style.css">
+    <link rel="stylesheet" href="styles/buscador.css">
 </head>
 
 <body>
@@ -50,7 +54,7 @@
         </div>
         <div class="title-header">
             <span class="logo">
-                <img src="../res/logo_bong.png" alt="Logo B-ONG">
+                <img src="res/logo_bong.png" alt="Logo B-ONG">
             </span>
             <div class="header-title-subtitle">
                 <span class="title">B-ONG</span>
@@ -68,23 +72,24 @@
     </header>
 
     <nav>
+
         <ul class="nav-primary">
             <li><a href="#">Página Inicial</a></li>
-            <li><a href="#">Sobre Nós</a></li>
+            <li><a href="pages/aboutus.html">Sobre Nós</a></li>
         </ul>
-        <!-- nav-secondary removido para manter consistência com article.html -->
+        
     </nav>
 
     <main>
         <section id="busca" class="bloco-buscador">
             <div class="busca-hero">
                 <h1 class="titulo-buscador">Encontre uma <span>ONG</span></h1>
-                <p class="subtitulo-buscador">Pesquise no nosso banco de dados e descubra instituições que precisam do seu apoio.</p>
 
                 <div class="busca-wrapper">
                     <div class="input-wrapper">
                         <span class="material-symbols-outlined input-icon">search</span>
-                        <input type="search" id="busca-input" placeholder="Nome da ONG, categoria ou cidade..." autocomplete="off">
+                        <input type="search" id="busca-input" placeholder="Nome da ONG, categoria ou cidade..."
+                            autocomplete="off">
                         <div id="autocomplete-list" class="autocomplete-dropdown" role="listbox" hidden></div>
                     </div>
                     <button id="filtro-btn" class="btn-filtro" aria-expanded="false">
@@ -98,11 +103,13 @@
                 <div id="painel-filtros" class="filtros-painel" hidden>
                     <div class="filtros-inner">
                         <div class="filtro-grupo">
-                            <span class="filtro-grupo-titulo"><span class="material-symbols-outlined">sell</span> Categorias</span>
+                            <span class="filtro-grupo-titulo"><span class="material-symbols-outlined">sell</span>
+                                Categorias</span>
                             <div id="filtros-tags" class="filtro-chips"></div>
                         </div>
                         <div class="filtro-grupo">
-                            <span class="filtro-grupo-titulo"><span class="material-symbols-outlined">location_on</span> Estado</span>
+                            <span class="filtro-grupo-titulo"><span class="material-symbols-outlined">location_on</span>
+                                Estado</span>
                             <div id="filtros-estados" class="filtro-chips"></div>
                         </div>
                         <button id="limpar-filtros" class="btn-limpar">Limpar filtros</button>
@@ -130,8 +137,8 @@
         <div class="creditos">Daniel, Miguel, Pedro e Guilherme</div>
     </footer>
 
-    <script src="../scripts/aside-tab.js"></script>
-    <script src="../scripts/buscador.js"></script>
+    <script src="scripts/aside-tab.js"></script>
+    <script src="scripts/buscador.js"></script>
 </body>
 
 </html>
