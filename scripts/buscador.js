@@ -74,7 +74,7 @@
     async function loadData() {
         mostrarSkeleton();
         try {
-            const response = await fetch('../ongs.json');
+            const response = await fetch('/ongs.json');
             if (!response.ok) throw new Error(`HTTP ${response.status}`);
             const data = await response.json();
             if (!Array.isArray(data) || !data.length) throw new Error('Dados vazios');
