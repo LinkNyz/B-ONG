@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B-ONG — Buscador de ONGs</title>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20,400,0,0&icon_names=arrow_back,close,person,search,tune,location_on,sell,search_off,arrow_forward" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&family=Jost:wght@200..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="root-style.css">
+    <link rel="stylesheet" href="header-footer-style.css">
+    <link rel="stylesheet" href="buscador.css">
+</head>
+
+<body>
+    <div class="overlay-blur"></div>
+
+    <aside>
+        <button class="aside-close">
+            <span class="material-symbols-outlined">close</span>
+        </button>
+        <div class="aside-body">
+            <div class="aside-section">
+                <div class="aside-section-title">
+                    <span class="material-symbols-outlined">person</span>
+                    Minha conta
+                </div>
+                <p>Funcionalidade em breve. Crie uma conta para salvar suas ONGs favoritas e acompanhar novidades.</p>
+            </div>
+            <div class="aside-section">
+                <div class="aside-section-title">
+                    <span class="material-symbols-outlined">info</span>
+                    Sobre a B-ONG
+                </div>
+                <p>Plataforma escolar de descoberta de ONGs brasileiras. Desenvolvida com carinho por Daniel, Miguel, Pedro e Guilherme.</p>
+            </div>
+        </div>
+    </aside>
+
+    <header>
+        <div class="return-space">
+            <a href="#"><span class="material-symbols-outlined">arrow_back</span></a>
+        </div>
+        <div class="title-header">
+            <span class="logo">
+                <img src="../res/logo_bong.webp" alt="Logo B-ONG">
+            </span>
+            <div class="header-title-subtitle">
+                <span class="title">B-ONG</span>
+                <div class="subtitle">
+                    <div class="upper-subtitle">Busque ONGs</div>
+                    <div class="lower-subtitle">Mude Vidas</div>
+                </div>
+            </div>
+        </div>
+        <div class="info-header">
+            <button aria-label="Abrir conta" aria-expanded="false">
+                <span class="material-symbols-outlined">person</span>
+            </button>
+        </div>
+    </header>
+
+    <nav id="main-nav" style="height:31px;">
+        <ul class="nav-primary">
+            <li><a href="#">Página Inicial</a></li>
+            <li><a href="#">Sobre Nós</a></li>
+        </ul>
+        <div class="nav-secondary">
+            <a href="#">Como funciona?</a>
+            <a href="#busca">Buscador</a>
+            <a href="#">Atualizações</a>
+        </div>
+    </nav>
+
+    <main>
+
+        <!-- SEÇÃO: BUSCA -->
+        <section id="busca" class="bloco-buscador">
+            <div class="busca-hero">
+                <h1 class="titulo-buscador">
+                    Encontre uma <span>ONG</span>
+                </h1>
+                <p class="subtitulo-buscador">
+                    Pesquise no nosso banco de dados e descubra instituições que precisam do seu apoio.
+                </p>
+
+                <!-- Formulário de busca -->
+                <div class="busca-wrapper">
+                    <div class="input-wrapper">
+                        <span class="material-symbols-outlined input-icon">search</span>
+                        <input
+                            type="search"
+                            id="busca-input"
+                            placeholder="Nome da ONG, categoria ou cidade..."
+                            autocomplete="off"
+                            aria-label="Pesquisar ONG"
+                            aria-autocomplete="list"
+                            aria-controls="autocomplete-list"
+                        >
+                        <div id="autocomplete-list" class="autocomplete-dropdown" role="listbox" hidden></div>
+                    </div>
+
+                    <button id="filtro-btn" class="btn-filtro" aria-expanded="false" aria-controls="painel-filtros">
+                        <span class="material-symbols-outlined">tune</span>
+                        Filtros
+                    </button>
+
+                    <button id="busca-btn" class="btn-busca" aria-label="Buscar">
+                        <span class="material-symbols-outlined">search</span>
+                    </button>
+                </div>
+
+                <!-- Painel de filtros -->
+                <div id="painel-filtros" class="filtros-painel" hidden>
+                    <div class="filtros-inner">
+                        <div class="filtro-grupo">
+                            <span class="filtro-grupo-titulo">
+                                <span class="material-symbols-outlined">sell</span>
+                                Categorias
+                            </span>
+                            <div id="filtros-tags" class="filtro-chips"></div>
+                        </div>
+                        <div class="filtro-grupo">
+                            <span class="filtro-grupo-titulo">
+                                <span class="material-symbols-outlined">location_on</span>
+                                Estado
+                            </span>
+                            <div id="filtros-estados" class="filtro-chips"></div>
+                        </div>
+                        <button id="limpar-filtros" class="btn-limpar">Limpar filtros</button>
+                    </div>
+                </div>
+
+                <!-- Chips de filtros ativos -->
+                <div id="filtros-ativos" class="filtros-ativos" hidden></div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO: RESULTADOS -->
+        <section id="resultados" class="bloco-resultados">
+            <div id="resultados-header" class="resultados-header" hidden>
+                <h2 class="titulo-resultados">Resultados</h2>
+                <span id="contagem" class="contagem-resultados"></span>
+            </div>
+            <div id="cards-container" class="cards-grid"></div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="nota-final">
+            A B-ONG não é uma empresa real, e não possui a pretensão de se passar por uma!<br>
+            Este é um trabalho escolar, feito com auxílio de nossa orientadora da Unip.<br>
+            Veja mais em <a href="#">Sobre Nós</a>
+        </div>
+        <div class="creditos">Daniel, Miguel, Pedro e Guilherme</div>
+    </footer>
+
+    <script src="buscador.js"></script>
+    <script>
+        // Nav expand on hover (mantendo comportamento original)
+        const nav = document.getElementById('main-nav');
+        const NAV_COLLAPSED = '31px';
+        const NAV_EXPANDED = '84px';
+        nav.addEventListener('mouseenter', () => nav.style.height = NAV_EXPANDED);
+        nav.addEventListener('mouseleave', () => nav.style.height = NAV_COLLAPSED);
+
+        // Aside toggle
+        const overlay  = document.querySelector('.overlay-blur');
+        const aside    = document.querySelector('aside');
+        const openBtn  = document.querySelector('.info-header button');
+        const closeBtn = document.querySelector('.aside-close');
+
+        function openAside()  { aside.classList.add('active');    overlay.classList.add('active');    openBtn.setAttribute('aria-expanded','true'); }
+        function closeAside() { aside.classList.remove('active'); overlay.classList.remove('active'); openBtn.setAttribute('aria-expanded','false'); }
+
+        openBtn.addEventListener('click',  openAside);
+        closeBtn.addEventListener('click', closeAside);
+        overlay.addEventListener('click',  closeAside);
+    </script>
+</body>
+</html>
