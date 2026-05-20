@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Sobre Nós </title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20,100,1,200&icon_names=arrow_back,close,person"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Habibi&family=Jost:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="bongteste.css">
+</head>
+
+<body>
+    <div class="fundo">
+        <div class="overlay-blur"></div>
+        <aside>
+            <button id="fechar-aside-btn">
+                <span class="material-symbols-outlined">
+                    close
+                </span>
+            </button>
+        </aside>
+        <header>
+            <div class="return-space">
+                <a href="#"><span class="material-symbols-outlined">
+                        arrow_back
+                    </span></a>
+            </div>
+            <div class="title-header">
+                <span class="logo">
+                    <img src="../res/logo_bong.webp" alt="">
+                </span>
+                <div class="header-title-subtitle">
+                    <span class="title">B-ONG</span>
+                    <div class="subtitle">
+                        <div class="upper-subtitle">Busque ONGS</div>
+                        <div class="lower-subtitle">Mude Vidas</div>
+                    </div>
+                </div>
+            </div>
+            <div class="info-header">
+                <button>
+                    <span class="material-symbols-outlined">
+                        person
+                    </span>
+                </button>
+            </div>
+        </header>
+        <nav>
+            <ul class="options-navigator">
+                <li><a href="#">Página Inicial</a></li>
+                <li><a href="">Sobre Nós</a></li>
+            </ul>
+            <div class="section-navigator">
+                <ol class="homepage">
+                    <li><a href="#">Como funciona?</a></li>
+                    <li><a href="#">Buscador</a></li>
+                    <li><a href="#">Atualizações</a></li>
+                </ol>
+                <ol class="about-us">
+                    <li><a href="#">Quem somos?</a></li>
+                    <li><a href="#">Funcionalidades</a></li>
+                    <li><a href="#">Como apoiar?</a></li>
+                </ol>
+            </div>
+        </nav>
+        <main class="pagina-buscador">
+
+    <section class="bloco-buscador" id="busca">
+        <div class="card-conteudo">
+
+            <h1 class="titulo-principal">
+                Buscador Inteligente da
+                <span>B-ONG</span>
+            </h1>
+
+            <p class="descricao">
+                Procure uma instituição no nosso banco de dados.
+            </p>
+
+            <form class="form-busca">
+
+                <button type="button" class="btn-filtro">
+                    Filtro
+                </button>
+
+                <input
+                    type="search"
+                    placeholder="Pesquisar ONG..."
+                >
+
+                <button type="submit" class="btn-busca">
+                    <span class="material-symbols-outlined">
+                        search
+                    </span>
+                </button>
+
+            </form>
+
+        </div>
+    </section>
+
+    <section class="bloco-resultados" id="resultados">
+
+        <div class="card-conteudo">
+
+            <h2 class="titulo-secao">
+                Resultados
+            </h2>
+
+            <p class="descricao">
+                Os resultados da sua busca aparecerão aqui.
+            </p>
+
+        </div>
+
+    </section>
+
+</main>
+        <footer>
+            <div class="nota-final">
+                A B-ONG não é uma empresa real, e não possui a pretensão de se passar por uma!<br>
+                Este daqui é só um trabalho escolar, feito com auxílio de nossa orientadora da Unip <br>
+                Veja mais sobre, em <a href="">Sobre Nós</a> <br>
+            </div>
+            <div class="creditos">
+                Daniel, Miguel, Pedro e Guilherme
+            </div>
+        </footer>
+    </div>
+
+    <script>
+         // Dentro de um function pq é uma boa prática, já que estamos lidando só com 1 tipo de função..
+        (function () {
+             //Definindo as constantes
+            const overlay = document.querySelector('.overlay-blur'); //seleciona o overlay
+            const aside = document.querySelector('aside'); //seleciona o aside
+            const toggleBtn = document.querySelector('.info-header button'); //seleciona o botão login
+            const closeBtn = document.getElementById('fechar-aside-btn'); //seleciona o botão fechar dentro do aside
+
+             // Definindo as funções
+            function openAside() {
+                overlay.classList.add('active'); //adiciona a classe active, ao overly
+                aside.classList.add('active'); //adiciona a classe active ao aside
+            }
+
+            function closeAside() { //Tira as classes actives
+                overlay.classList.remove('active');
+                aside.classList.remove('active');
+            }
+
+             //Daqui pra baixo temos só listeners
+
+            toggleBtn.addEventListener('click', function (e) { //seleciona o botão de login, e procura um clique
+                e.preventDefault();
+                if (!overlay.classList.contains('active')) { //Se overlay não tem classe ativa:
+                    openAside();
+                } else {
+                    closeAside();
+                }
+            });
+
+            closeBtn.addEventListener('click', function (e) { //se botão fechar for clicado.
+                closeAside();
+            });
+
+            overlay.addEventListener('click', function (e) { //se overlay for clicado
+                closeAside();
+            });
+
+            function abrirMenu() {
+            aside.classList.add('active');
+            overlay.classList.add('active');
+            abrirBtn.setAttribute('aria-expanded', 'true');
+            }
+
+            function fecharMenu() {
+            aside.classList.remove('active');
+            overlay.classList.remove('active');
+            abrirBtn.setAttribute('aria-expanded', 'false');
+            }
+
+            abrirBtn.addEventListener('click', abrirMenu);
+            fecharBtn.addEventListener('click', fecharMenu);
+            overlay.addEventListener('click', fecharMenu);
+        })();
+    </script>
+</body>
+
+</html>

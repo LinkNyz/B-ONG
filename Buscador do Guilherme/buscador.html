@@ -1,0 +1,152 @@
+```html
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscador - B-ONG</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=Habibi&family=Jost:wght@200;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+    <link rel="stylesheet" href="bong.css".css">
+</head>
+<body>
+    <div class="overlay-blur" id="overlay" aria-hidden="true"></div>
+
+    <aside id="menu-aside" aria-label="Menu lateral">
+        <button id="fechar-aside-btn" aria-label="Fechar menu">
+            <span class="material-symbols-outlined">close</span>
+        </button>
+        <nav aria-label="Navegação lateral">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="buscador.html">Buscador</a></li>
+                <li><a href="instituicoes.html">Instituições</a></li>
+                <li><a href="sobre.html">Quem Somos</a></li>
+                <li><a href="faq.html">Dúvidas Frequentes</a></li>
+                <li><a href="proposito.html">Propósito</a></li>
+                <li><a href="contato.html">Fale Conosco</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <div class="fundo">
+        <header>
+            <div class="return-space">
+                <a href="index.html" aria-label="Voltar para a página inicial">
+                    <span class="material-symbols-outlined">arrow_back</span>
+                </a>
+            </div>
+
+            <div class="title-header">
+                <a href="index.html">
+                    <img src="assets/logo.png" alt="Logotipo B-ONG — coração verde entre duas mãos" class="logo">
+                </a>
+                <div class="header-title-subtitle">
+                    <span class="title">B-ONG</span>
+                    <div class="subtitle">
+                        <p class="upper-subtitle">Buscador Inteligente</p>
+                        <p class="lower-subtitle">de ONGs</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-header">
+                <button id="abrir-aside-btn" aria-label="Abrir menu de navegação" aria-expanded="false" aria-controls="menu-aside">
+                    <span class="material-symbols-outlined">menu</span>
+                </button>
+            </div>
+        </header>
+
+        <nav aria-label="Navegação principal">
+            <ul class="options-navigator">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="buscador.html" aria-current="page">Buscador</a></li>
+                <li><a href="instituicoes.html">Instituições</a></li>
+            </ul>
+            <div class="section-navigator" aria-label="Seções desta página">
+                <ol>
+                    <li><a href="#busca">Busca</a></li>
+                    <li><a href="#resultados">Resultados</a></li>
+                </ol>
+            </div>
+        </nav>
+
+        <main id="conteudo-principal">
+            <section id="busca" aria-labelledby="titulo-buscador">
+                <div class="conteiner-prin sobrenos">
+                    <h1 id="titulo-buscador" id="titulo-principal">
+                        Buscador Inteligente<br>
+                        da <span style="color: var(--forest-green)">B-ONG</span>
+                    </h1>
+                    <p>Procure uma instituição no nosso banco de dados.</p>
+
+                    <form role="search" aria-label="Buscar ONGs">
+                        <div class="info-header">
+                            <button type="button" id="filtro-btn" aria-label="Abrir filtros de busca">
+                                Filtro
+                            </button>
+                        </div>
+                        <label for="campo-busca" class="sr-only">Buscar ONG</label>
+                        <input
+                            type="search"
+                            id="campo-busca"
+                            name="busca"
+                            placeholder="Search"
+                            aria-label="Buscar instituições"
+                            autocomplete="off"
+                        >
+                        <button type="submit" aria-label="Executar busca">
+                            <span class="material-symbols-outlined">search</span>
+                        </button>
+                    </form>
+                </div>
+            </section>
+
+            <section id="resultados" aria-labelledby="titulo-resultados" aria-live="polite">
+                <div class="conteiner-prin sobrenos">
+                    <h2 id="titulo-resultados">Resultados</h2>
+                    <p>Os resultados da sua busca aparecerão aqui.</p>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <nav aria-label="Rodapé">
+                <ul class="options-navigator">
+                    <li><a href="sobre.html">Quem Somos</a></li>
+                    <li><a href="faq.html">Duvidas Gerais</a></li>
+                    <li><a href="proposito.html">Proposito</a></li>
+                    <li><a href="contato.html">Fale Conosco</a></li>
+                </ul>
+            </nav>
+            <p class="creditos">B-ONG &copy; 2026</p>
+        </footer>
+    </div>
+
+    <script>
+        const overlay = document.getElementById('overlay');
+        const aside = document.getElementById('menu-aside');
+        const abrirBtn = document.getElementById('abrir-aside-btn');
+        const fecharBtn = document.getElementById('fechar-aside-btn');
+
+        function abrirMenu() {
+            aside.classList.add('active');
+            overlay.classList.add('active');
+            abrirBtn.setAttribute('aria-expanded', 'true');
+        }
+
+        function fecharMenu() {
+            aside.classList.remove('active');
+            overlay.classList.remove('active');
+            abrirBtn.setAttribute('aria-expanded', 'false');
+        }
+
+        abrirBtn.addEventListener('click', abrirMenu);
+        fecharBtn.addEventListener('click', fecharMenu);
+        overlay.addEventListener('click', fecharMenu);
+    </script>
+</body>
+</html>
+```
