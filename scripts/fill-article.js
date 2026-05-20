@@ -22,7 +22,7 @@
 
     // LOAD DATA ──────────────────────────────────────────────────────────
     async function loadData() {
-        const r = await fetch('./ongs.json');
+        const r = await fetch('../../ongs.json');
         if (!r.ok) throw new Error();
         const data = await r.json();
         if (Array.isArray(data) && data.length) { ongsDatabase = normalizeIds(data); return; }

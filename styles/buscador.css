@@ -1,0 +1,665 @@
+/* ============================================================
+   buscador.css — Estilos exclusivos da página de busca
+   Depende de: root-style.css, header-footer-style.css
+   Não duplica regras globais (body, header, footer, nav, etc.)
+   ============================================================ */
+
+/* ── Layout principal (apenas o que não está no global) ───── */
+main {
+    flex: 1;
+    width: min(1100px, 92%);
+    margin: 0 auto;
+    padding: 48px 0 80px;
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+}
+
+/* ── Hero de busca ────────────────────────────────────────── */
+.busca-hero {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    padding: 48px 52px 40px;
+    box-shadow: var(--shadow-md);
+    border: 1px solid rgba(58, 125, 34, .1);
+    border-left: 5px solid var(--forest);
+    position: relative;
+    overflow: visible;
+}
+
+.titulo-buscador {
+    font-family: var(--font-accent);
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: var(--deep-forest);
+    line-height: 1.1;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.titulo-buscador span {
+    color: var(--forest);
+}
+
+.subtitulo-buscador {
+    font-size: 1rem;
+    color: var(--text-muted);
+    line-height: 1.65;
+    margin-bottom: 32px;
+    max-width: 540px;
+}
+
+/* ── Barra de busca ───────────────────────────────────────── */
+.busca-wrapper {
+    display: flex;
+    gap: 12px;
+    align-items: stretch;
+    flex-wrap: wrap;
+    position: relative;
+}
+
+.input-wrapper {
+    flex: 1;
+    min-width: 240px;
+    position: relative;
+}
+
+.input-icon {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--sage);
+    font-size: 1.25rem;
+    pointer-events: none;
+}
+
+#busca-input {
+    width: 100%;
+    height: 52px;
+    padding: 0 18px 0 48px;
+    border: 2px solid var(--pale-green);
+    border-radius: var(--radius-md);
+    background: var(--cream);
+    font-family: var(--font-body);
+    font-size: 0.97rem;
+    color: var(--dark);
+    outline: none;
+    transition: border-color .2s, box-shadow .2s;
+}
+
+#busca-input:focus {
+    border-color: var(--forest);
+    box-shadow: 0 0 0 4px rgba(58, 125, 34, .12);
+    background: var(--white);
+}
+
+#busca-input::placeholder {
+    color: var(--sage);
+}
+
+/* ── Botões ───────────────────────────────────────────────── */
+.btn-filtro {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    height: 52px;
+    padding: 0 22px;
+    border: 2px solid var(--pale-green);
+    border-radius: var(--radius-md);
+    background: var(--white);
+    color: var(--forest);
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background .2s, border-color .2s, color .2s;
+    white-space: nowrap;
+}
+
+.btn-filtro span {
+    font-size: 1.1rem;
+}
+
+.btn-filtro:hover,
+.btn-filtro.ativo {
+    background: var(--pale-green);
+    border-color: var(--forest);
+    color: var(--deep-forest);
+}
+
+.btn-busca {
+    width: 52px;
+    height: 52px;
+    border: none;
+    border-radius: var(--radius-md);
+    background: var(--forest);
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: background .2s, transform .15s;
+}
+
+.btn-busca span {
+    font-size: 1.4rem;
+}
+
+.btn-busca:hover {
+    background: var(--deep-forest);
+    transform: translateY(-1px);
+}
+
+.btn-busca:active {
+    transform: translateY(0);
+}
+
+/* ── Autocomplete ─────────────────────────────────────────── */
+.autocomplete-dropdown {
+    position: absolute;
+    top: calc(100% + 6px);
+    left: 0;
+    right: 0;
+    background: var(--white);
+    border: 1px solid rgba(58, 125, 34, .18);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+    z-index: 200;
+    overflow: hidden;
+    max-height: 320px;
+    overflow-y: auto;
+}
+
+.autocomplete-dropdown::-webkit-scrollbar {
+    width: 4px;
+}
+
+.autocomplete-dropdown::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.autocomplete-dropdown::-webkit-scrollbar-thumb {
+    background: var(--pale-green);
+    border-radius: 4px;
+}
+
+.autocomplete-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 12px 16px;
+    cursor: pointer;
+    transition: background .15s;
+    border-bottom: 1px solid rgba(58, 125, 34, .06);
+}
+
+.autocomplete-item:last-child {
+    border-bottom: none;
+}
+
+.autocomplete-item:hover,
+.autocomplete-item.selected {
+    background: var(--cream);
+}
+
+.autocomplete-thumb {
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-sm);
+    object-fit: cover;
+    flex-shrink: 0;
+    background: var(--pale-green);
+}
+
+.autocomplete-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.autocomplete-nome {
+    font-family: var(--font-accent);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--dark);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.autocomplete-nome mark {
+    background: rgba(181, 224, 74, .5);
+    color: inherit;
+    border-radius: 2px;
+}
+
+.autocomplete-meta {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    margin-top: 2px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* ── Painel de filtros ────────────────────────────────────── */
+.filtros-painel {
+    margin-top: 20px;
+    padding: 24px;
+    background: var(--cream);
+    border-radius: var(--radius-md);
+    border: 1px solid rgba(58, 125, 34, .1);
+    animation: slideDown .2s ease;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.filtros-inner {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    align-items: flex-start;
+}
+
+.filtro-grupo {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-width: 180px;
+}
+
+.filtro-grupo-titulo {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--font-accent);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--dark);
+}
+
+.filtro-grupo-titulo span {
+    font-size: 1rem;
+    color: var(--forest);
+}
+
+.filtro-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.chip-filtro {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 6px 14px;
+    border-radius: 40px;
+    border: 1.5px solid rgba(58, 125, 34, .22);
+    background: var(--white);
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all .18s;
+    user-select: none;
+}
+
+.chip-filtro:hover {
+    border-color: var(--forest);
+    color: var(--forest);
+    background: rgba(214, 235, 200, .5);
+}
+
+.chip-filtro.ativo {
+    background: var(--forest);
+    border-color: var(--forest);
+    color: var(--white);
+}
+
+.btn-limpar {
+    align-self: flex-end;
+    margin-left: auto;
+    padding: 8px 20px;
+    border: 1.5px solid rgba(192, 57, 43, .35);
+    border-radius: 40px;
+    background: transparent;
+    color: #c0392b;
+    font-family: var(--font-body);
+    font-size: 0.82rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all .18s;
+}
+
+.btn-limpar:hover {
+    background: #c0392b;
+    color: var(--white);
+    border-color: #c0392b;
+}
+
+/* ── Chips de filtros ativos ──────────────────────────────── */
+.filtros-ativos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 16px;
+}
+
+.chip-ativo {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px 12px 5px 14px;
+    border-radius: 40px;
+    background: var(--pale-green);
+    border: 1px solid rgba(58, 125, 34, .25);
+    color: var(--deep-forest);
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background .15s;
+}
+
+.chip-ativo:hover {
+    background: #b8dcaa;
+}
+
+.chip-ativo span {
+    font-size: 0.8rem;
+    opacity: 0.7;
+}
+
+/* ── Cabeçalho de resultados ──────────────────────────────── */
+.resultados-header {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    margin-bottom: 4px;
+}
+
+.titulo-resultados {
+    font-family: var(--font-accent);
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--deep-forest);
+}
+
+.contagem-resultados {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+/* ── Grid de cards ────────────────────────────────────────── */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 24px;
+}
+
+/* ── Card de resultado ────────────────────────────────────── */
+.ong-result-card {
+    background: var(--white);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid rgba(58, 125, 34, .1);
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: inherit;
+    transition: transform .22s, box-shadow .22s;
+    animation: fadeUp .4s ease both;
+}
+
+.ong-result-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(16px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.card-img-wrap {
+    position: relative;
+    height: 170px;
+    background: var(--pale-green);
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.card-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform .4s ease;
+}
+
+.ong-result-card:hover .card-img-wrap img {
+    transform: scale(1.04);
+}
+
+.card-img-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(10, 42, 5, .55) 0%, transparent 55%);
+}
+
+.card-local-badge {
+    position: absolute;
+    bottom: 10px;
+    left: 12px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    background: rgba(10, 42, 5, .75);
+    color: var(--pale-green);
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 40px;
+    backdrop-filter: blur(4px);
+    letter-spacing: .03em;
+}
+
+.card-local-badge span {
+    font-size: 0.8rem;
+}
+
+.card-info {
+    padding: 18px 20px 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.card-nome {
+    font-family: var(--font-accent);
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--deep-forest);
+    line-height: 1.2;
+}
+
+.card-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.card-tag {
+    background: var(--cream);
+    color: var(--text-muted);
+    border: 1px solid rgba(58, 125, 34, .15);
+    font-size: 0.72rem;
+    font-weight: 500;
+    padding: 3px 10px;
+    border-radius: 40px;
+}
+
+.card-ver-mais {
+    margin-top: auto;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--forest);
+    transition: gap .18s, color .18s;
+}
+
+.ong-result-card:hover .card-ver-mais {
+    gap: 9px;
+    color: var(--deep-forest);
+}
+
+.card-ver-mais span {
+    font-size: 0.9rem;
+}
+
+/* ── Descrição no card ────────────────────────────────────── */
+.card-desc {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* ── Skeleton loading ─────────────────────────────────────── */
+.skeleton-card {
+    pointer-events: none;
+}
+
+.skeleton {
+    background: linear-gradient(90deg, var(--pale-green) 25%, var(--cream) 50%, var(--pale-green) 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.4s infinite;
+    border-radius: var(--radius-sm);
+}
+
+@keyframes shimmer {
+    0%   { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+.skeleton-img {
+    height: 170px;
+    border-radius: 0;
+}
+
+.skeleton-title {
+    height: 22px;
+    width: 70%;
+    margin-bottom: 10px;
+}
+
+.skeleton-line {
+    height: 13px;
+    width: 90%;
+    margin-bottom: 8px;
+}
+
+.skeleton-line--short {
+    width: 55%;
+}
+
+/* ── Estados: vazio / erro ────────────────────────────────── */
+.estado-vazio,
+.estado-erro {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 64px 24px;
+    background: var(--white);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid rgba(58, 125, 34, .08);
+}
+
+.estado-vazio .material-symbols-outlined,
+.estado-erro .material-symbols-outlined {
+    font-size: 3rem;
+    color: var(--sage);
+    display: block;
+    margin-bottom: 16px;
+}
+
+.estado-vazio h3,
+.estado-erro h3 {
+    font-family: var(--font-accent);
+    font-size: 1.4rem;
+    color: var(--dark);
+    margin-bottom: 8px;
+}
+
+.estado-vazio p,
+.estado-erro p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    line-height: 1.65;
+}
+
+/* ── Responsivo ───────────────────────────────────────────── */
+@media (max-width: 768px) {
+    main {
+        width: 94%;
+        padding: 24px 0 60px;
+        gap: 32px;
+    }
+
+    .busca-hero {
+        padding: 28px 22px 28px;
+    }
+
+    .titulo-buscador {
+        font-size: 2rem;
+    }
+
+    .cards-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .filtros-inner {
+        gap: 16px;
+    }
+
+    .btn-limpar {
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .busca-wrapper {
+        gap: 8px;
+    }
+
+    .btn-filtro {
+        flex: 1;
+        justify-content: center;
+    }
+}
