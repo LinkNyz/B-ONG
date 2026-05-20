@@ -1,0 +1,372 @@
+:root{
+            /*Tudo aqui embaixo foi um :root feito por ia, Não usei a maior parte por que sou um panaca*/
+            /* MAIN COLORS — green, white, black */
+            --ivory: #F4F6EDff;
+            --forest-green: #4B9126ff;
+            --strong-green: #dcffab;
+            --muted-olive: #8EB663ff;
+            --beige: #DDE7C8ff;
+            --black-forest: #054218ff;
+            --black: #000000ff;
+            --evergreen: #012F13ff;
+            --everred: rgb(47, 1, 1);
+
+            /* MEASURES: spacing scale (rem = relative to root font size) */
+            --space-xs: 0.25rem;
+            --space-sm: 0.5rem;
+            --space-md: 1rem;
+            --space-lg: 1.5rem;
+            --space-xl: 2rem;
+            --space-2xl: 3rem;
+
+            /* TYPOGRAPHY MEASURES */
+            --text-xs: 0.75rem;
+            --text-sm: 0.875rem;
+            --text-base: 1rem;
+            --text-md: 1.125rem;
+            --text-lg: 1.5rem;
+            --text-xl: 2rem;
+            --text-2xl: 2.5rem;
+
+            --leading-tight: 1.2;
+            --leading-normal: 1.5;
+            --leading-relaxed: 1.65;
+
+            /* BORDERS & RADIUS */
+            --radius-sm: 0.25rem;
+            --radius-md: 0.5rem;
+            --radius-lg: 0.75rem;
+            --border-thin: 1px solid;
+
+            /*Fonts*/
+            --normal-text: "Habibi", serif;
+            ---serif-text: "Jost", sans-serif;
+            --title-text: "Cormorant Garamond", serif;
+        }
+
+        * { /*Só um negócio para começar a trabalhar, pode mexer. Provavelmnete não vai quebrar a página... bom uso*/
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body { /*defini um tema claro*/
+            background: var(--beige);
+        }
+
+        .fundo{  /*utilizei um .fundo flex pq eu queria fazer algumas alterações nos conteúdos da página.*/
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            width: 100%;
+        }
+
+        .overlay-blur { /*Utilizada pelo aside para definir o "puxado". Ele sempre tá presente na tela. Só não tem opacidade nem interações. O JS muda isso mais tarde*/
+            position: fixed;
+            z-index: 80;
+            background: #000000ba;
+            height: 100%;
+            width: 100%;
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px); /*-webkit recomendado por IA, para ter suporte à merda do IOS*/
+            opacity: 0; /*Tira deixa invísivel. Achei melhor isso do que utilizar o clássico display: none, porque daí dá para fazer uma transição suave*/
+            pointer-events: none; /*Tira interações*/
+            transition: opacity 0.3s ease;
+        }
+
+        .overlay-blur.active { /*caso o class="overlay-blur" tiver um active*/
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        aside { /*É o aside, coloca o conteúdo que precisar dentro.*/
+            justify-self: end;
+            width: 300px;
+            height: 100%;
+            position: fixed;
+            top: 0;
+            right: 0;
+            z-index: 99;
+            background-color: var(--strong-green);
+            padding: 15px;
+            transform: translateX(100%);  /*Tira ele da tela enquanto não clicado por padrão*/
+            transition: transform 0.3s ease;
+        }
+
+        aside.active { /*Então... Eu achei mais legal o aside vier literalmente de fora da tela. Então o translateX 0, no active, é para trazer ele para ser visualizado.*/
+            transform: translateX(0);
+        }
+
+        aside #fechar-aside-btn { /*Tira configs básicas do botão, para ele ficar "limpo".*/
+            border: none;
+            background: none;
+        }
+
+        aside #fechar-aside-btn span { /*Estilização do botão.*/
+            border-radius: 50%;
+            color: var(--beige);
+            font-weight: 900;
+            font-size: 3em;
+            background-color: var(--evergreen);
+            opacity: 0.85;
+            transition: all .2s;
+        }
+
+        aside #fechar-aside-btn span:hover { /*Estilização do hover botão.*/
+            background-color: darkred;
+            text-shadow: 0 0 3px var(--beige);
+        }
+
+        header {
+            background-image: linear-gradient(to right, var(--forest-green), var(--muted-olive));
+            color: var(--white);
+            padding: 10px 20px;
+            justify-content: space-between;
+            flex-direction: row;
+        }
+
+        header,
+        .title-header { /*.title-header é o container da logo e o titulo/subtitulo.*/
+            display: flex;
+        }
+
+        .title-header {
+            align-items: center;
+            color: var(--beige);
+            gap: 20px;
+        }
+
+        .header-title-subtitle { /*container de título e subtítulo.*/
+            border-top: 1px solid var(--ivory);
+            display: flex;
+            flex-direction: row;
+            border-bottom: 1px solid var(--ivory);
+            padding: 5px 10px;
+            gap: 10px;
+            user-select: none;
+        }
+
+        .title { /* container título.*/
+            font-size: 2.5em;
+            padding-right: 5px;
+            font-family: var(--title-text);
+            font-weight: 600;
+        }
+
+        .subtitle  /*container subtítulos.*/{
+            margin-left: 5px;
+            font-size: 1em;
+            height: fit-content;
+            font-family: var(---serif-text);
+            font-weight: 200;
+        }
+
+        .upper-subtitle { /*Subtítulo superior.*/
+            border-bottom: 1px solid var(--muted-olive);
+            padding-left: 5px;
+        }
+
+        .lower-subtitle { /*Subtítulo inferior.*/
+            padding: 0 5px;
+            margin-left: 5px;
+        }
+
+        header img  /*logo.*/{
+            width: 100px;
+            height: auto;
+        }
+
+        .return-space,
+        .info-header { /*Canto esquerdo e direito do header.*/
+            display: flex;
+            align-items: center;
+        }
+
+        .return-space a,
+        a:hover,
+        a:visited { /*return button.*/
+            color: var(--ivory);
+            text-decoration: none;
+        }
+
+        .return-space span {
+            font-size: 3em;
+            font-weight: 900;
+        }
+
+        .info-header button {
+            border: none;
+            background: none;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .info-header button span {
+            font-size: 5em;
+            color: var(--ivory);
+        }
+
+        .return-space a span,
+        .info-header button span {
+            transition: all .2s;
+        }
+
+        .return-space a span:hover,
+        .info-header button span:hover,
+        nav ul li a:hover {
+            color: var(--strong-green);
+            text-shadow: 0 0 2px var(--ivory);
+        }
+
+        nav {
+            padding: 5px 30px;
+            background-color: var(--evergreen);
+            margin-bottom: 20px;
+            flex-direction: column;
+            display: flex;
+            overflow: hidden;
+            height: 31px;
+            transition: all .2s;
+        }
+
+        nav:hover {
+            height: 120px;
+            font-size: 1.25em;
+        }
+
+        nav ul.options-navigator {
+            display: flex;
+            gap: 50px;
+            list-style: none;
+            font-size: 1.25em;
+        }
+
+        nav ul li a,
+        nav ul li a:visited {
+            color: var(--ivory);
+            text-decoration: none;
+            transition: all .2s;
+        }
+
+        .section-navigator {
+            display: flex;
+            color: var(--beige);
+            opacity: 0.85;
+            margin-left: 20px;
+            gap: 55px;
+            padding-bottom: 10px;
+            transition: all .2s;
+        }
+
+        .section-navigator ol li a {
+            color: var(--beige);
+            opacity: 0.85;
+            text-decoration: none;
+            transition: all .2s;
+        }
+
+        .section-navigator ol li a:hover {
+            color: var(--strong-green);
+            opacity: 1;
+        }
+
+        /*Começo do main, página sobre nós*/
+
+        main { 
+            margin: 50px auto;
+            padding: 20px;
+            max-width: 85%; /* Impede que o conteúdo estique demais em telas muito grandes */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #2c3e50; /* Cor do texto principal */
+        }
+
+        .conteiner-prin { 
+            background-color: var(--beige); 
+            padding: 40px;
+            margin-bottom: 40px;
+            border-left: 2px solid;
+            border-color: var(--evergreen);
+            box-shadow: 5px black;
+            transition: 0.4s ease;
+        }
+
+        .conteiner-prin:hover {
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+            transform: scale(1.005);
+        }
+
+        .sobrenos h2 {
+            font-size: 2rem;
+            color: var(--evergreen);
+            margin-bottom: 20px;
+            border-bottom: 2px solid gray;
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+
+        #titulo-principal { 
+            display: flex;
+            justify-content: center;
+            font-size: 2.4rem;
+            margin-bottom: 30px;
+            border-bottom: none;
+            padding-bottom: 0;
+            color: var(--evergreen);
+        }
+
+        .conteiner-sn h3 {
+            font-weight: 400;
+        }
+        
+        /*Fim do main*/
+
+        footer {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, var(--black-forest), var(--evergreen));
+            margin-top: 20px;
+            padding: 10px 20px;
+            color: var(--ivory);
+        }
+
+        .nota-final{
+            margin-bottom: 10px;
+        }
+
+        .nota-final, .creditos{
+            text-align: center;
+        }
+
+        .nota-final a, .nota-final a:visited{
+            color: var(--forest-green);
+            text-decoration: none;
+        }
+
+        footer .nota-final a:hover{
+            color: var(--muted-olive);
+            text-decoration: underline;
+        }
+
+        .creditos{
+            opacity: 0.85;
+            font-size: 1.5em;
+            font-family: var(--title-text);
+        }
+
+        @media (max-width: 600px) {
+
+            .return-space,
+            span.logo {
+                display: none;
+            }
+
+            nav:hover {
+                height: 140px;
+            }
+
+            nav ul.options-navigator {
+                margin-bottom: 5px;
+            }
+        }
