@@ -9,7 +9,7 @@
       "Transparência institucional"
     ],
     "imagemUrl": "https://www.idis.org.br/wp-content/uploads/2021/07/Design-sem-nome-40.png",
-    "endereco": "Poá, SP",
+    "endereco": "Estr. Fernando Nobre, 1420 - Parque Rincão, Cotia - SP, 06705-490",
     "doacoes_aceitas": [
       "Recursos financeiros",
       "Alimentos",
@@ -34,7 +34,7 @@
       "Reconhecimento internacional"
     ],
     "imagemUrl": "https://yt3.googleusercontent.com/EYPWYEiBkMEWqc93ik63rYck288FLzjIoyUWtouq1qIp9Z6IqOMcibZYDPfEZZ1bilCcYQvCQ2c=s900-c-k-c0x00ffffff-no-rj",
-    "endereco": "São Paulo, SP",
+    "endereco": "Av. Prof. Ascendino Reis, 724 - Ibirapuera, São Paulo - SP, 04027-000",
     "doacoes_aceitas": [
       "Recursos financeiros",
       "Cadeiras de rodas",
@@ -59,7 +59,7 @@
       "Prêmio Direitos Humanos"
     ],
     "imagemUrl": "https://www.fadc.org.br/sites/default/files/2019-05/logo-fadc_1.png",
-    "endereco": "São Paulo, SP",
+    "endereco": "Av. Santo Amaro, 1386 - Vila Nova Conceição, São Paulo - SP, 04506-001",
     "doacoes_aceitas": [
       "Material escolar",
       "Recursos financeiros",
@@ -83,7 +83,7 @@
       "Atuação internacional"
     ],
     "imagemUrl": "https://www.msf.org.br/wp-content/uploads/2024/02/logo_fundobranco_1200x628-1.png",
-    "endereco": "Rio de Janeiro, RJ",
+    "endereco": "Praia de Botafogo, 300 - Botafogo, Rio de Janeiro - RJ, 22250-040",
     "doacoes_aceitas": [
       "Recursos financeiros",
       "Materiais hospitalares",
@@ -107,7 +107,7 @@
       "Reconhecimento ambiental"
     ],
     "imagemUrl": "https://wwfbrnew.awsassets.panda.org/img/original/logo_sos_mata_atlantica_1.jpg",
-    "endereco": "São Paulo, SP",
+    "endereco": "Av. Paulista, 2073 - Bela Vista, São Paulo - SP, 01311-300",
     "doacoes_aceitas": [
       "Mudas",
       "Recursos financeiros",
@@ -121,5 +121,365 @@
       "sustentabilidade"
     ],
     "linkSite": "https://sosma.org.br"
+  },
+  {
+    "id": "wwf-brasil",
+    "titulo": "WWF-Brasil",
+    "descricao": "Organização ambiental que atua na conservação da natureza, proteção da biodiversidade e combate às mudanças climáticas.",
+    "qualificacoes": [
+      "Atuação internacional",
+      "Parceira ONU",
+      "Reconhecimento ambiental"
+    ],
+    "imagemUrl": "https://upload.wikimedia.org/wikipedia/commons/0/02/WWF_logo.svg",
+    "endereco": "SHIS QI 23 Conj. 6 Casa 21 - Lago Sul, Brasília - DF, 71660-060",
+    "doacoes_aceitas": [
+      "Recursos financeiros",
+      "Voluntariado",
+      "Equipamentos ambientais"
+    ],
+    "tags": [
+      "meio ambiente",
+      "biodiversidade",
+      "clima",
+      "sustentabilidade"
+    ],
+    "linkSite": "https://wwf.org.br"
+  },
+  {
+    "id": "instituto-ayar",
+    "titulo": "Instituto Ayrton Senna",
+    "descricao": "Instituição voltada à melhoria da educação pública brasileira, desenvolvendo programas educacionais e pesquisas pedagógicas.",
+    "qualificacoes": [
+      "Reconhecimento MEC",
+      "Prêmio Educação",
+      "Impacto nacional"
+    ],
+    "imagemUrl": "https://d3nehc6yl9qzo4.cloudfront.net/img/original/wwf_logo_large_rgb_72dpi.jpg",
+    "endereco": "Al. Santos, 2001 - Cerqueira César, São Paulo - SP, 01419-002",
+    "doacoes_aceitas": [
+      "Recursos financeiros",
+      "Voluntariado"
+    ],
+    "tags": [
+      "educação",
+      "escolas",
+      "juventude",
+      "desenvolvimento"
+    ],
+    "linkSite": "https://institutoayrtonsenna.org.br"
+  },
+  {
+    "id": "pastoral-da-crianca",
+    "titulo": "Pastoral da Criança",
+    "descricao": "Organização social que promove o desenvolvimento integral de crianças em situação de vulnerabilidade social.",
+    "qualificacoes": [
+      "Reconhecimento UNICEF",
+      "Atuação nacional",
+      "Impacto social"
+    ],
+    "imagemUrl": "https://rtv.es.gov.br/Media/radio/Jornalismo/2018/06-%20JUNHO/Pastoral-da-Crian%C3%A7a-Logo-1.jpg",
+    "endereco": "Rua Jacarezinho, 1691 - Mercês, Curitiba - PR, 80710-150",
+    "doacoes_aceitas": [
+      "Alimentos",
+      "Recursos financeiros",
+      "Voluntariado"
+    ],
+    "tags": [
+      "infância",
+      "saúde",
+      "assistência social",
+      "família"
+    ],
+    "linkSite": "https://pastoraldacrianca.org.br"
+  },
+  {
+    "id": "gacc",
+    "titulo": "GRAACC",
+    "descricao": "Hospital e ONG especializada no tratamento de crianças e adolescentes com câncer.",
+    "qualificacoes": [
+      "Hospital referência",
+      "Transparência institucional",
+      "Reconhecimento nacional"
+    ],
+    "imagemUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_azUA5s9M7-j7YH1kIKOhrcC2ktM7eX3iTQ&s",
+    "endereco": "R. Botucatu, 743 - Vila Clementino, São Paulo - SP, 04023-062",
+    "doacoes_aceitas": [
+      "Recursos financeiros",
+      "Medicamentos",
+      "Voluntariado"
+    ],
+    "tags": [
+      "saúde",
+      "câncer",
+      "crianças",
+      "hospital"
+    ],
+    "linkSite": "https://graacc.org.br"
+  },
+  {
+    "id": "adote-um-gatinho",
+    "titulo": "Adote um Gatinho",
+    "descricao": "ONG dedicada ao resgate, cuidado e adoção responsável de gatos abandonados.",
+    "qualificacoes": [
+      "Reconhecimento animal",
+      "Atuação voluntária",
+      "Proteção animal"
+    ],
+    "imagemUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRYQSacOn6rDLXbSRh-izm5g6_Qr3E8jlIvGg&s",
+    "endereco": "Pinheiros, São Paulo - SP",
+    "doacoes_aceitas": [
+      "Ração",
+      "Medicamentos veterinários",
+      "Recursos financeiros",
+      "Voluntariado"
+    ],
+    "tags": [
+      "animais",
+      "gatos",
+      "adoção",
+      "resgate"
+    ],
+    "linkSite": "https://adoteumgatinho.org.br"
+  },
+  {
+    "id": "ampara-animal",
+    "titulo": "Ampara Animal",
+    "descricao": "ONG de proteção animal focada em resgates, adoção e campanhas de conscientização.",
+    "qualificacoes": [
+      "Reconhecimento nacional",
+      "Projetos de adoção",
+      "Proteção animal"
+    ],
+    "imagemUrl": "https://e3ba6e8732e83984.cdn.gocache.net/uploads/image/file/152297/regular_ampara.PNG",
+    "endereco": "Av. Paulista, 171 - Bela Vista, São Paulo - SP, 01311-000",
+    "doacoes_aceitas": [
+      "Ração",
+      "Produtos veterinários",
+      "Recursos financeiros",
+      "Voluntariado"
+    ],
+    "tags": [
+      "animais",
+      "proteção animal",
+      "adoção",
+      "resgate"
+    ],
+    "linkSite": "https://amparanimal.org.br"
+  },
+  {
+    "id": "instituto-oncoguia",
+    "titulo": "Instituto Oncoguia",
+    "descricao": "Instituição que apoia pacientes com câncer através de informação, acolhimento e defesa de direitos.",
+    "qualificacoes": [
+      "Reconhecimento na saúde",
+      "Apoio ao paciente",
+      "Atuação nacional"
+    ],
+    "imagemUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7rLTyMo_WY-0JQykm0DxlkDEv_nuhUa6rNg&s",
+    "endereco": "R. Oscar Freire, 379 - Cerqueira César, São Paulo - SP, 01426-001",
+    "doacoes_aceitas": [
+      "Recursos financeiros",
+      "Voluntariado"
+    ],
+    "tags": [
+      "saúde",
+      "câncer",
+      "direitos",
+      "acolhimento"
+    ],
+    "linkSite": "https://oncoguia.org.br"
+  },
+  {
+    "id": "tamar",
+    "titulo": "Projeto Tamar",
+    "descricao": "Projeto voltado à preservação das tartarugas marinhas e educação ambiental nas regiões costeiras brasileiras.",
+    "qualificacoes": [
+      "Reconhecimento ambiental",
+      "Parceria governamental",
+      "Proteção da fauna"
+    ],
+    "imagemUrl": "https://www.tamar.org.br/imagens/logo_tamar.png",
+    "endereco": "Av. do Farol, s/n - Praia do Forte, Mata de São João - BA, 48280-000",
+    "doacoes_aceitas": [
+      "Recursos financeiros",
+      "Voluntariado",
+      "Equipamentos ambientais"
+    ],
+    "tags": [
+      "meio ambiente",
+      "tartarugas",
+      "oceano",
+      "educação ambiental"
+    ],
+    "linkSite": "https://tamar.org.br"
+  },
+  {
+    "id": "instituto-luisa-mell",
+    "titulo": "Instituto Luisa Mell",
+    "descricao": "ONG dedicada ao resgate e recuperação de animais abandonados ou vítimas de maus-tratos.",
+    "qualificacoes": [
+      "Proteção animal",
+      "Reconhecimento nacional",
+      "Projetos de adoção"
+    ],
+    "imagemUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5-fhtbz2WVxsVLVvXUnsVbwGBvHi-KFLZDg&s",
+    "endereco": "Av. Presidente Castelo Branco, 3200 - Canindé, São Paulo - SP, 03036-000",
+    "doacoes_aceitas": [
+      "Ração",
+      "Medicamentos",
+      "Recursos financeiros",
+      "Voluntariado"
+    ],
+    "tags": [
+      "animais",
+      "resgate",
+      "adoção",
+      "proteção animal"
+    ],
+    "linkSite": "https://ilm.org.br"
+  },
+  {
+    "id": "cvv",
+    "titulo": "CVV",
+    "descricao": "Centro de Valorização da Vida que oferece apoio emocional e prevenção do suicídio gratuitamente.",
+    "qualificacoes": [
+      "Atendimento 24h",
+      "Reconhecimento nacional",
+      "Apoio emocional"
+    ],
+    "imagemUrl": "https://yata-apix-6954e8a7-0fd3-4b7d-98c4-f7c7d64fcadc.s3-object.locaweb.com.br/20338dc7d0bb4c86a63bdabe9fe58a15.png",
+    "endereco": "R. Carneiro da Cunha, 85 - Vila da Saúde, São Paulo - SP, 04144-000",
+    "doacoes_aceitas": [
+      "Recursos financeiros",
+      "Voluntariado"
+    ],
+    "tags": [
+      "saúde mental",
+      "apoio emocional",
+      "prevenção",
+      "voluntariado"
+    ],
+    "linkSite": "https://cvv.org.br"
+  },
+  {
+    "id": "habitat-brasil",
+    "titulo": "Habitat para a Humanidade Brasil",
+    "descricao": "Organização que atua na promoção de moradia digna para famílias em situação de vulnerabilidade.",
+    "qualificacoes": [
+      "Atuação internacional",
+      "Impacto social",
+      "Reconhecimento habitacional"
+    ],
+    "imagemUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRYPBeCmbnyP51WGtpDHox2FClKteUGolSfIw&s",
+    "endereco": "R. Capitão Lima, 145 - Santo Amaro, Recife - PE, 50100-170",
+    "doacoes_aceitas": [
+      "Materiais de construção",
+      "Recursos financeiros",
+      "Voluntariado"
+    ],
+    "tags": [
+      "moradia",
+      "assistência social",
+      "famílias",
+      "habitação"
+    ],
+    "linkSite": "https://habitatbrasil.org.br"
+  },
+  {
+    "id": "afesu",
+    "titulo": "AFESU",
+    "descricao": "Organização voltada à capacitação profissional e inclusão social de jovens em situação de vulnerabilidade.",
+    "qualificacoes": [
+      "Impacto educacional",
+      "Projetos sociais",
+      "Reconhecimento comunitário"
+    ],
+    "imagemUrl": "https://afesu.org.br/wp-content/uploads/2024/07/logo-afesu-desktop-2.webp",
+    "endereco": "R. Japão, 550 - Itaim Bibi, São Paulo - SP, 04530-001",
+    "doacoes_aceitas": [
+      "Recursos financeiros",
+      "Material escolar",
+      "Voluntariado"
+    ],
+    "tags": [
+      "educação",
+      "juventude",
+      "capacitação",
+      "inclusão social"
+    ],
+    "linkSite": "https://afesu.org.br"
+  },
+  {
+    "id": "saude-crianca",
+    "titulo": "Saúde Criança",
+    "descricao": "ONG que apoia famílias de crianças em tratamento hospitalar por meio de assistência integrada.",
+    "qualificacoes": [
+      "Reconhecimento ONU",
+      "Impacto social",
+      "Atuação hospitalar"
+    ],
+    "imagemUrl": "https://storage.googleapis.com/atados-v3/user-uploaded/images/10dfad8a-74dd-44d2-8d3b-bbce9e4ccc33.jpg",
+    "endereco": "R. Jardim Botânico, 86 - Jardim Botânico, Rio de Janeiro - RJ, 22461-000",
+    "doacoes_aceitas": [
+      "Recursos financeiros",
+      "Alimentos",
+      "Voluntariado"
+    ],
+    "tags": [
+      "saúde",
+      "infância",
+      "assistência social",
+      "família"
+    ],
+    "linkSite": "https://saudecrianca.org.br"
+  },
+  {
+    "id": "missao-africa",
+    "titulo": "Fraternidade sem Fronteiras",
+    "descricao": "Organização humanitária que desenvolve projetos sociais no Brasil e em países africanos.",
+    "qualificacoes": [
+      "Atuação internacional",
+      "Impacto humanitário",
+      "Projetos sociais"
+    ],
+    "imagemUrl": "https://upload.wikimedia.org/wikipedia/pt/2/2f/Logo_Fraternidade_sem_Fronteiras.png",
+    "endereco": "R. Praia de Pituba, 53 - Jardim Autonomista, Campo Grande - MS, 79022-491",
+    "doacoes_aceitas": [
+      "Recursos financeiros",
+      "Alimentos",
+      "Voluntariado"
+    ],
+    "tags": [
+      "humanitário",
+      "assistência social",
+      "educação",
+      "solidariedade"
+    ],
+    "linkSite": "https://fraternidadesemfronteiras.org.br"
+  },
+  {
+    "id": "rede-apae",
+    "titulo": "APAE Brasil",
+    "descricao": "Rede de associações voltadas ao atendimento e inclusão de pessoas com deficiência intelectual e múltipla.",
+    "qualificacoes": [
+      "Atuação nacional",
+      "Inclusão social",
+      "Reconhecimento educacional"
+    ],
+    "imagemUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuWz0MynQ8ykkr7lhi9gBVUcyaMYwQf96whw&s",
+    "endereco": "SDS Bloco F Ed. Venâncio IV, Asa Sul, Brasília - DF, 70393-900",
+    "doacoes_aceitas": [
+      "Recursos financeiros",
+      "Equipamentos educacionais",
+      "Voluntariado"
+    ],
+    "tags": [
+      "deficiência",
+      "inclusão",
+      "educação",
+      "assistência social"
+    ],
+    "linkSite": "https://apaebrasil.org.br"
   }
 ]
